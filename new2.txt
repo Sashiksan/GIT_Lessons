@@ -1,0 +1,4 @@
+Name: Aliaksandr Krashutski
+Age: 38
+How many pets: 1 cat
+Salary rate: at least $30 per Hour
