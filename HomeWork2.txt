@@ -91,14 +91,60 @@
  	d) $ git push
  
  21. В веб интерфейсе GitHub создать файл new3.txt.
+ 	
+ 	
  22. Отредактировать в веб интерфейсе содержание файла “new3.txt” - написать информацию о своих предпочтениях (Любимый фильм, любимый сериал, любимая еда, любимое время года, сторона которую хотели бы посетить).
+ 	Favorite move: WALL·E
+	Favorite sitcom: Friends, Chuck
+	Favorite Food: Steak (medium rare)
+	Favorite time of the year года: Spring
+	The Country you want to visit: France
+ 
  23. Сделать Commit changes (сохранить) изменения на веб интерфейсе.
+ 
+ 
  24. Синхронизировать внешний и локальный репозитории (слить изменения с внешнего репозитория) 
+ 	$ git pull
+ 
  25. Отредактировать в веб интерфейсе содержание файла “new2.json” - добавить информацию о своих предпочтениях (Любимый фильм, любимый сериал, любимая еда, любимое время года, сторона которую хотели бы посетить). Всё в формате JSON.
+ 	{
+	"Student_INFO": [{
+		"First Name": "Aliaksandr Krashutski",
+		"Age": "38",
+		"How many pets": "1 Cat",
+		"Salary rate": "at least $30 per Hour",
+		"Favorite move": "WALL·E",
+		"Favorite sitcom": "Friends, Chuck",
+		"Favorite Food": "Steak (medium rare)",
+		"Favorite time of the year": "Spring",
+		"The Country you want to visit": "France"
+	}]
+}
+ 
  26. Сделать Commit changes (сохранить) изменения на веб интерфейсе.
+ 
+ 
  27. Синхронизировать внешний и локальный репозитории 
+ 	$ git pull
+ 
  28. Отредактировать в веб интерфейсе содержание файла “new2.xml” - добавить информацию о своих предпочтениях (Любимый фильм, любимый сериал, любимая еда, любимое время года, сторона которую хотели бы посетить). Всё в формате XML.
+ 	<Students_INFO>
+ 		<Student>
+ 			<Name>Aliaksandr Krashutski</Name>
+        		<Age>38</Age>
+      			<HowManyPets>1 Cat</HowManyPets>
+    			<SalaryRate>at least $30 per Hour</SalaryRate>
+        		<FavoriteMove>WALL·E</FavoriteMove>
+        		<FavoriteSitcom>Friends, Chuck</FavoriteSitcom>
+        		<FavoriteFood>Steak (medium rare)</FavoriteFood>
+        		<FavoriteTimeOfTheYear>Spring</FavoriteTimeOfTheYear>
+        		<TheCountryYouWantToVisit>France</TheCountryYouWantToVisit>
+    		</Student>
+	</Students_INFO>
+ 
  29. Сделать Commit changes (сохранить) изменения на веб интерфейсе.
+ 
+ 
  30. Синхронизировать внешний и локальный репозитории 
 
 Данные для заполнения и редактирования файлов можете использовать любые, не обязательно свои.
