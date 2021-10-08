@@ -1,8 +1,13 @@
 {
 	"Student_INFO":[{
-		"First Name":"Aliaksandr Krashutski",
-		"Age":"38",
-		"How many pets":"1 Cat",
-		"Salary rate":"at least $30 per Hour"
+		"First Name": "Aliaksandr Krashutski",
+		"Age": "38",
+		"How many pets": "1 Cat",
+		"Salary rate": "at least $30 per Hour",
+		"Favorite move": "WALL·E",
+		"Favorite sitcom": "Friends, Chuck",
+		"Favorite Food": "Steak (medium rare)",
+		"Favorite time of the year": "Spring",
+		"The Country you want to visit": "France"
 	}]
 }

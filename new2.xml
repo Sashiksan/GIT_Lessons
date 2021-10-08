@@ -1,8 +1,13 @@
-<Students_INFO>  
-    <Student>  
-        <Name>Aliaksandr Krashutski</Name>   
+<Students_INFO>
+    <Student>
+        <Name>Aliaksandr Krashutski</Name>
         <Age>38</Age>
         <HowManyPets>1 Cat</HowManyPets>
         <SalaryRate>at least $30 per Hour</SalaryRate>
-    </Student>   
+        <FavoriteMove>WALL·E</FavoriteMove>
+        <FavoriteSitcom>Friends, Chuck</FavoriteSitcom>
+        <FavoriteFood>Steak (medium rare)</FavoriteFood>
+        <FavoriteTimeOfTheYear>Spring</FavoriteTimeOfTheYear>
+        <TheCountryYouWantToVisit>France</TheCountryYouWantToVisit>
+    </Student>
 </Students_INFO>
