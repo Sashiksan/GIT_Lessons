@@ -49,12 +49,12 @@
  	$ nano new2.json 
  	
  		{
-		"Student_INFO":[{
-			"First Name":"Aliaksandr Krashutski",
-			"Age":"38",
-			"How many pets":"1 Cat",
-			"Salary rate":"at least $30 per Hour"
-			}]
+		"Student_INFO": {
+			"First Name": "Aliaksandr Krashutski",
+			"Age": 38,
+			"How many pets": "1 Cat",
+			"Salary rate": "at least $30 per Hour"
+			}
 		}
  	
  14. Добавить и закоммитить “new2.txt” одной строчкой. 
