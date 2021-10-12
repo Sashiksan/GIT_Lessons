@@ -1,0 +1,13 @@
+1 ID
+2 Problem Summary(Name)
+3 Steps to reproduce (Description)
+4 Environment
+5 Expected result
+6 Actual result
+7 Severity
+8 Priority
+9 Reported by
+10 Assigned to
+11 Status (Open, Fixed, Closed, cannot reproduce)
+12 Notes
+
