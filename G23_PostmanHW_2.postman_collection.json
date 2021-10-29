@@ -1,0 +1,454 @@
+{
+	"info": {
+		"_postman_id": "27fbbd59-8051-45b3-991e-f6b9ce341980",
+		"name": "G23_PostmanHW_2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "first",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"This is the first responce from server!\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}first",
+					"host": [
+						"{{url}}first"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_info_3 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"console.log(\"tests start\")",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//Parce JSON data",
+							"var jsonRESP = pm.response.json();",
+							"var req = request.data;",
+							"console.log(req);",
+							"",
+							"",
+							"pm.test(\"Your test name should be AlexK\", function () {",
+							"    pm.expect(jsonRESP.name).to.eql('AlexK');",
+							"});",
+							"console.log('what we got from JSON - ' + jsonRESP.name);",
+							"",
+							"pm.test(\"Checking for correct age, 38 as a string\", function (){",
+							"    pm.expect(jsonRESP.age).to.equal(\"38\");",
+							"})",
+							"",
+							"pm.test(\"checking salary, 7300 as a number\", function(){",
+							"    pm.expect(jsonRESP.salary).to.equal(7300);",
+							"})",
+							"",
+							"pm.test(\"Compare names from request and response\", function(){",
+							"    pm.expect(jsonRESP.name).to.equal(req.name);",
+							"})",
+							"console.log(\"Our response is \" + jsonRESP.name +\", req is \"+ req.name)",
+							"",
+							"pm.test(\"Compare ages from request and response\", function(){",
+							"    pm.expect(jsonRESP.age).to.equal(req.age);",
+							"})",
+							"console.log(\"Our response is \" + jsonRESP.age +\", req is \"+ req.age);",
+							"",
+							"pm.test(\"Compare salaryes from request and response\", function(){",
+							"    pm.expect(jsonRESP.salary).to.equal(Number(req.salary));",
+							"    })",
+							"console.log(\"Our response is \" + jsonRESP.salary +\", req is \"+ Number(req.salary));",
+							"",
+							"//Print in console parametrs family",
+							"console.log(jsonRESP.family);",
+							"var schema = {",
+							"    \"items\": {",
+							"        \"type\": \"boolean\"",
+							"    }",
+							"};",
+							"",
+							"var data1 = [true, false];",
+							"var data2 = [true, 123];",
+							"",
+							"",
+							"",
+							"pm.test(\"cheking our Salary in 1.5 year is \" + jsonRESP.family.u_salary_1_5_year, function(){",
+							"    pm.expect(jsonRESP.family.u_salary_1_5_year).to.equal(Number(req.salary*4));",
+							"})",
+							"",
+							"console.log(\"Our salary in 1.5 year is \" + Number(req.salary*4) +\", getting from response \" + Number(jsonRESP.family.u_salary_1_5_year));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "{{name}}",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}user_info_3",
+					"host": [
+						"{{url}}user_info_3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "object_info_3 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"console.log(\"tests start\")",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//Parce JSON data",
+							"var jsonRESP = pm.response.json();",
+							"var reqName = pm.request.url.query.get('name');",
+							"var reqAge = pm.request.url.query.get('age');",
+							"var reqSalary = pm.request.url.query.get('salary');",
+							"console.log(reqName);",
+							"console.log(reqAge);",
+							"console.log(reqSalary);",
+							"",
+							"pm.test(\"Compare names from request and response\", function(){",
+							"    pm.expect(jsonRESP.name).to.equal(reqName);",
+							"})",
+							"console.log(\"Our response is \" + jsonRESP.name +\", req is \"+ reqName);",
+							"",
+							"",
+							"pm.test(\"Compare ages from request and response\", function(){",
+							"   pm.expect(jsonRESP.age).to.equal(reqAge);",
+							"})",
+							"console.log(\"Our response is \" + jsonRESP.age +\", req is \"+ reqAge);",
+							"",
+							"pm.test(\"Compare salaryes from request and response\", function(){",
+							"    pm.expect(jsonRESP.salary).to.equal(+(reqSalary));",
+							"    })",
+							"console.log(\"Our response is \" + jsonRESP.salary +\", req is \"+ reqSalary);",
+							"",
+							"//Print in console parametrs family",
+							"console.log(jsonRESP.family);",
+							"console.log(jsonRESP.family.pets.dog);",
+							"",
+							"pm.test(\"Body matches string Name\", function () {",
+							"    pm.expect(jsonRESP.family.pets.dog.name).exist;",
+							"});",
+							"",
+							"pm.test(\"Body matches string Age\", function () {",
+							"    pm.expect(jsonRESP.family.pets.dog.age).exist;",
+							"});",
+							"",
+							"pm.test(\"Check param name contain Luky\", function () {",
+							"    pm.expect(jsonRESP.family.pets.dog.name).to.include(\"Luky\");",
+							"});",
+							"console.log(jsonRESP.family.pets.dog.name);",
+							"",
+							"pm.test(\"Checking dog age\", function(){",
+							"    pm.expect(jsonRESP.family.pets.dog.age).to.equal(4);",
+							"});",
+							"console.log(jsonRESP.family.pets.dog.age);",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}object_info_3?name={{name}}&age={{age}}&salary={{salary}}",
+					"host": [
+						"{{url}}object_info_3"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{{name}}"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "object_info_4 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"console.log(\"tests start\")",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//Parce JSON data",
+							"var jsonRESP = pm.response.json();",
+							"var reqName = pm.request.url.query.get('name');",
+							"var reqAge = Number(pm.request.url.query.get('age'));",
+							"var reqSalary = Number(pm.request.url.query.get('salary'));",
+							"var req = pm.request.url.query.toObject();",
+							"console.log(req);",
+							"console.log(reqAge);",
+							"console.log(reqName);",
+							"",
+							"pm.test(\"Compare names from request and response\", function(){",
+							"    pm.expect(jsonRESP.name).to.equal(reqName);",
+							"})",
+							"console.log(\"Our response is \" + jsonRESP.name +\", req is \"+ reqName)",
+							"",
+							"pm.test(\"Compare ages from request and response\", function(){",
+							"   pm.expect(jsonRESP.age).to.equal(reqAge);",
+							"})",
+							"console.log(\"Our response is \" + jsonRESP.age +\", req is \"+ reqAge);",
+							"",
+							"console.log(\"parametr salary from request \" + reqSalary);",
+							"",
+							"console.log(\"parametr salary from responce \" + jsonRESP.salary);",
+							"",
+							"console.log(\"parametr 0 salary from responce \" + jsonRESP.salary[0]);",
+							"",
+							"console.log(\"parametr 1 salary from responce \" + jsonRESP.salary[1]);",
+							"",
+							"console.log(\"parametr 2 salary from responce \" + jsonRESP.salary[2]);",
+							"",
+							"pm.test(\"Compare our Salary from request and responce \", function(){",
+							"    pm.expect(jsonRESP.salary[0]).to.equal(reqSalary);",
+							"})",
+							"",
+							"pm.test(\"Check our 1st element in Salary is equal salary*2 \", function(){",
+							"    pm.expect(Number(jsonRESP.salary[1])).to.equal(reqSalary*2);",
+							"})",
+							"",
+							"pm.test(\"Check our 2st element in Salary is equal salary*3 \", function(){",
+							"    pm.expect(Number(jsonRESP.salary[2])).to.equal(reqSalary*3);",
+							"})",
+							"",
+							"",
+							"",
+							"pm.environment.set(\"name\", reqName);",
+							"pm.environment.set(\"age\", reqAge);",
+							"pm.environment.set(\"salary\", reqSalary);",
+							"",
+							"for (var i of jsonRESP.salary){",
+							"    console.log(i)",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}object_info_4?name=AlexK&age=38&salary=7300",
+					"host": [
+						"{{url}}object_info_4"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "AlexK"
+						},
+						{
+							"key": "age",
+							"value": "38"
+						},
+						{
+							"key": "salary",
+							"value": "7300"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_info_2 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200.\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonRESP = pm.response.json();",
+							"console.log(jsonRESP);",
+							"var req = request.data;",
+							"console.log(req);",
+							"",
+							"pm.test(\"Checking our JSON for parametr 'start_qa_salary' should EXIST.\", function(){",
+							"    pm.expect(jsonRESP.start_qa_salary).exist;",
+							"});",
+							"",
+							"pm.test(\"Checking our JSON for parametr 'qa_salary_after_6_months' should EXIST.\", function(){",
+							"    pm.expect(jsonRESP.qa_salary_after_6_months).exist;",
+							"});",
+							"",
+							"pm.test(\"Checking our JSON for parametr 'qa_salary_after_12_months' should EXIST.\", function(){",
+							"    pm.expect(jsonRESP.qa_salary_after_12_months).exist;",
+							"})",
+							"",
+							"pm.test(\"Checking our JSON for parametr 'qa_salary_after_1.5_year' should EXIST.\", function(){",
+							"    pm.expect(jsonRESP[\"qa_salary_after_1.5_year\"]).exist;",
+							"})",
+							"",
+							"pm.test(\"Checking our JSON for parametr 'qa_salary_after_3.5_years' should EXIST.\", function(){",
+							"    pm.expect(jsonRESP[\"qa_salary_after_3.5_years\"]).exist;",
+							"})",
+							"",
+							"pm.test(\"Checking our JSON for parametr 'person' should EXIST.\", function(){",
+							"    pm.expect(jsonRESP.person).exist;",
+							"});",
+							"",
+							"pm.test(\"Check our 'start_qa_salary' from responce is equal  Salary in request \", function(){",
+							"    pm.expect(jsonRESP.start_qa_salary).to.equal(Number(req.salary));",
+							"    console.log(jsonRESP.start_qa_salary + \"=\" + Number(req.salary));",
+							"});",
+							"",
+							"pm.test(\"Check our 'qa_salary_after_6_months' from responce is equal  salary*2 in request \", function(){",
+							"    pm.expect(jsonRESP.qa_salary_after_6_months).to.equal(req.salary*2);",
+							"    console.log(jsonRESP.qa_salary_after_6_months + \"=\" + req.salary*2);",
+							"});",
+							"",
+							"pm.test(\"Check our 'qa_salary_after_12_months' from responce is equal  salary*2.7 in request \", function(){",
+							"    pm.expect(jsonRESP.qa_salary_after_12_months).to.equal(req.salary*2.7);",
+							"    console.log(jsonRESP.qa_salary_after_12_months + \"=\" + req.salary*2.7);",
+							"});",
+							"",
+							"pm.test(\"Check our 'qa_salary_after_1.5_year' from responce is equal  salary*3.3 in request \", function(){",
+							"    pm.expect(jsonRESP['qa_salary_after_1.5_year']).to.equal(req.salary*3.3);",
+							"    console.log(jsonRESP['qa_salary_after_1.5_year'] + \"=\" + req.salary*3.3);",
+							"});",
+							"",
+							"pm.test(\"Check our 'qa_salary_after_3.5_years' from responce is equal  salary*3.8 in request \", function(){",
+							"    pm.expect(jsonRESP['qa_salary_after_3.5_years']).to.equal(req.salary*3.8);",
+							"    console.log(jsonRESP['qa_salary_after_3.5_years'] + \"=\" + req.salary*3.8);",
+							"});",
+							"",
+							"pm.test(\"Check our 1st element in 'u_name' from responce is equal  salary in request \", function(){",
+							"    pm.expect(jsonRESP.person.u_name[1]).to.equal(Number(req.salary));",
+							"    console.log(jsonRESP.person.u_name[1] + \"=\" + Number(req.salary));",
+							"});",
+							"",
+							"pm.test(\"Check our  'u_age' from responce is equal  age in request \", function(){",
+							"    pm.expect(jsonRESP.person.u_age).to.equal(Number(req.age));",
+							"    console.log(jsonRESP.person.u_age + \"=\" + Number(req.age));",
+							"});",
+							"",
+							"pm.test(\"Check our 'u_salary_5_years' from responce is equal  salary*4.2 in request \", function(){",
+							"    pm.expect(jsonRESP.person.u_salary_5_years).to.equal(req.salary*4.2);",
+							"    console.log(jsonRESP.person.u_salary_5_years + \"=\" + req.salary*4.2);",
+							"});",
+							"",
+							"for (var i in jsonRESP.person){",
+							"    console.log(i);",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "{{name}}",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}user_info_2",
+					"host": [
+						"{{url}}user_info_2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "age",
+			"value": ""
+		}
+	]
+}
